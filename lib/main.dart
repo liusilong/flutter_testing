@@ -7,16 +7,12 @@ class EmailVerify {
     return email.isEmpty ? "邮箱不能为空" : null;
   }
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Counter App',
+      home: MyHomePage(title: 'Counter App Home Page'),
     );
   }
 }
@@ -54,13 +50,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
+              // Provide a Key to this specific Text widget. This allows
+              // identifing the widget from inside the test suite,
+              // and reading the text.
+              key: Key('counter'),
               style: Theme.of(context).textTheme.display1,
             ),
-            Text("Liusilong")
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        // Provide a Key to this button. This allows finding this
+        // specific button inside the test suite, and tapping it.
+        key: Key('increment'),
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
